@@ -47,10 +47,12 @@ CREATE TABLE users (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     userName VARCHAR(50) NOT NULL,
     userPassword VARCHAR(50) NOT NULL,
+    userEmail varchar(50) not null,
+    userAddr varchar(50) not null,
     isAdmin TINYINT(1) DEFAULT 0
 );
 
-CREATE TABLE posts (
+CREATE TABLE bbs (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
