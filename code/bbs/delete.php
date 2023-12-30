@@ -2,9 +2,9 @@
 include 'head.php';
 include 'config.php';
 
-$id = $_GET['id']; // Get the post ID from the URL
+$id = $_GET['id']; // Get the bbs ID from the URL
 
-$sql = "DELETE FROM posts WHERE id = $id";
+$sql = "DELETE FROM bbs WHERE id = $id";
 
 if ($conn->query($sql) === TRUE) {
     echo "Post deleted successfully";
