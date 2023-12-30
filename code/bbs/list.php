@@ -42,7 +42,8 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
-
+<br><br>
+<a href="write.php">편지쓰러 가기 💜</a>
 <footer><?php include ("footer.php") ?></footer>
 </body>
 </html>
