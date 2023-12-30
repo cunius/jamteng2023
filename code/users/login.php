@@ -32,7 +32,7 @@ $conn->close();
 
 <body>
     
-    <h2>💜 유애나 입장 💜</h2>
+    <h1>💜 유애나 입장 💜</h1>
     <form method="post" action="login.php">
         코드네임<br> <input type="text" name="userName" required><br><br>
         암호를 대라<br> <input type="password" name="userPassword" required><br><br>
