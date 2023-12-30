@@ -53,6 +53,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE bbs (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
     userId varchar(100) NOT NULL,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
