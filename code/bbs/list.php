@@ -4,7 +4,7 @@ include 'config.php'; // Database connection
 
 $searchTerm = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
 
-$sql = "SELECT id, title, content, created_at FROM posts";
+$sql = "SELECT id, title, content, created_at FROM bbs";
 if (!empty($searchTerm)) {
     $sql .= " WHERE title LIKE '%$searchTerm%' OR content LIKE '%$searchTerm%'";
 }
