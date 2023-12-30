@@ -20,3 +20,9 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+<body>
+    <form method="get" action="list.php">
+        <input type="submit" value="목록">
+    </form>
+    <footer><?php include ("footer.php") ?></footer>
+</body>
