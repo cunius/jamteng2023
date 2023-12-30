@@ -15,18 +15,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $conn->close();
 }
+
 ?>
 
 <h1>💜 익명의 팬 래터 💜</h1>
-<img src="iu4.jpg" width="500">
+<a href="list.php">편지함으로 이동 💜</a><br><br>
 
+
+<img src="iu4.jpg" width="500"><br>
 <form method="post" action="">
-    제목<br><input type="text" name="title" id="title" value="<?php echo $title ?? ''; ?>"><br>
+    제목<br><input type="text" name="title" id="title" value="<?php echo $title ?? ''; ?>"><br><br>
     편지<br>
-    <textarea name="content" id="content"><?php echo $content ?? ''; ?></textarea><br>
+    <textarea name="content" id="content"><?php echo $content ?? ''; ?></textarea><br><br>
     <input type="submit" value="전송 💜">
 </form>
-
 <div id="preview"></div>
 
 <script>
@@ -39,3 +41,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     document.getElementById('title').addEventListener('input', updatePreview);
     document.getElementById('content').addEventListener('input', updatePreview);
 </script>
+<footer><?php include ("footer.php") ?></footer>
