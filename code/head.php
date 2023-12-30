@@ -7,7 +7,7 @@ function isLoggedIn() {
 
 function getUserRole() {
     // Check if 'isAdmin' is set and equals to 1, then return 'Admin', else 'User'
-    return (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) ? 'Admin' : '유애나';
+    return (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) ? '팬클럽 회장님' : '유애나';
 }
 
 $current_page = basename($_SERVER['PHP_SELF']);
