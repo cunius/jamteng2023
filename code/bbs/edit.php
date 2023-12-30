@@ -1,46 +1,53 @@
 <?php
+session_start();
 include 'head.php';
 include 'config.php';
 
+// Redirect if not logged in
+if (!isset($_SESSION['login_user'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$id = $_GET['id'];
+
+// Fetch the post and its author's user_id
+$sql = "SELECT userId, title, content FROM posts WHERE id = '$id'";
+$result = $conn->query($sql);
+
+if ($result->num_rows == 0) {
+    echo "$id 가 편지 안 써줘떠.. 🙁";
+    exit;
+}
+
+$row = $result->fetch_assoc();
+
+// Check if the logged-in user is the author or an admin
+if ($_SESSION['userId'] != $row['userId'] && $_SESSION['isAdmin'] != 1) {
+    echo "왜 내 편지 지우려고 해!! 이 나쁜 놈아 🤨";
+    exit;
+}
+
 // Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_GET['id'];
     $title = $conn->real_escape_string($_POST['title']);
     $content = $conn->real_escape_string($_POST['content']);
 
-    $sql = "UPDATE bbs SET title = '$title', content = '$content' WHERE id = $id";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "편지 고마웡 유애나 💜";
-        // Redirect to a confirmation page or back to the post list
-        header("Location: index.php");
-    } else {
-        echo "편지 안 써줄꼬양? 🥺" . $conn->error;
-    }
-} else {
-    // Display edit form
-    $id = $_GET['id'];
-    $sql = "SELECT title, content FROM bbs WHERE id = $id";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $title = $row['title'];
-        $content = $row['content'];
-    } else {
-        echo "너 $id 는 편지를 안 썼어 흥!";
+    $update_sql = "UPDATE posts SET title = '$title', content = '$content' WHERE id = $id";
+    if ($conn->query($update_sql) === TRUE) {
+        header("Location: list.php");
         exit;
+    } else {
+        echo "내 편지를 감히 지울 수 없다!!" . $conn->error;
     }
 }
-
-$conn->close();
 ?>
 
 <form method="post" action="">
-    Title: <input type="text" name="title" id="title" value="<?php echo $title ?? ''; ?>"><br>
+    Title: <input type="text" name="title" id="title" value="<?php echo htmlspecialchars($row['title']); ?>"><br>
     Content:<br>
-    <textarea name="content" id="content"><?php echo $content ?? ''; ?></textarea><br>
-    <input type="submit" value="전송 💜">
+    <textarea name="content" id="content"><?php echo htmlspecialchars($row['content']); ?></textarea><br>
+    <input type="submit" value="Update Post">
 </form>
 
 <div id="preview"></div>
