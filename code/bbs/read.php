@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
     echo "<p>".$row["content"]."</p>";
     echo "<p>보낸 날짜는 ".$row["created_at"]." 💜</p>";
 } else {
-    echo "아무도 편지 안 써줘떠... 🥲";
+    echo "<h2>아무도 편지 안 써줘떠... 🥲</h2>";
 }
 $conn->close();
 ?>
