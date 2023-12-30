@@ -6,8 +6,8 @@ $id = $_GET['id'];
 // $id = isset($_GET['id']) ? $conn->real_escape_string($_GET['id']) : 0;
 
 
-$sql = "SELECT title, content, created_at FROM posts WHERE id = $id";
-// $sql = "SELECT id, title, content FROM posts WHERE id = $id";
+$sql = "SELECT title, content, created_at FROM bbs WHERE id = $id";
+// $sql = "SELECT id, title, content FROM bbs WHERE id = $id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
