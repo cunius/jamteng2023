@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <h1>💜 익명의 팬 래터 💜</h1>
-<a href="list.php">편지함으로 이동 💜</a><br><br>
+<a href="list.php">편지함으로 슝~ 이동 💜</a><br><br>
 
 
 <img src="iu4.jpg" width="500"><br>
