@@ -40,10 +40,9 @@ $conn->close();
     Title: <input type="text" name="title" id="title" value="<?php echo $title ?? ''; ?>"><br>
     Content:<br>
     <textarea name="content" id="content"><?php echo $content ?? ''; ?></textarea><br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="전송 💜">
 </form>
 
-<h3>💜 팬 래터 💜</h3>
 <div id="preview"></div>
 
 <script>
