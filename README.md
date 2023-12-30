@@ -1,7 +1,7 @@
 # Cunius's 엉망징창 코딩놀이 for fun
 ## Reflected XSS / Stored XSS / DOM XSS / CSRF / SSRF 취약점 구현
 
-## Setup
+### Setup
 ```shell
 # 업데이트 및 아파치/PHP/MySQL 설치
 sudo apt udpate
@@ -35,7 +35,7 @@ sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 
-## MySQL
+### MySQL
 ```sql
 CREATE DATABASE db_name;
 CREATE USER 'uname'@'localhost' IDENTIFIED BY 'passWord';
