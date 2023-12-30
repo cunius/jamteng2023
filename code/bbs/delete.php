@@ -1,32 +1,32 @@
 <?php
-include 'head.php';
+session_start();
 include 'config.php';
+include 'head.php';
 
 if (!isset($_SESSION['login_user'])) {
     header("Location: login.php");
-    exit();
+    exit;
 }
 
-$id = $_GET['id']; // Get the bbs ID from the URL
+$id = $_GET['id'];
 
-//Fetch the post creator's userId
+// Fetch the author's userId
 $sql = "SELECT userId FROM bbs WHERE id = '$id'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
-//Check prm
+// Check permission
 if ($_SESSION['userId'] != $row['userId'] && $_SESSION['isAdmin'] != 1) {
-    echo "Beep! Beep! Dangerous!!";
-    exit();
+    echo "너 왜 내 편지 지우려고 해 이 못된 놈아!! 😤";
+    exit;
 }
 
-//Delete the post
+// Delete the post
 $delete_sql = "DELETE FROM bbs WHERE id = '$id'";
 if ($conn->query($delete_sql) === TRUE) {
-    echo "Deleted";
+    echo "안녕, 사라진 편지는 내 기억 속에 영원히 저장할게";
     header("Location: list.php");
 } else {
-    echo "Error!" .$conn->error;
+    echo "삭제는 잔인해 😫 " . $conn->error;
 }
-
 ?>
