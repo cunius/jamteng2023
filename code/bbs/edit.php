@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $conn->real_escape_string($_POST['title']);
     $content = $conn->real_escape_string($_POST['content']);
 
-    $sql = "UPDATE posts SET title = '$title', content = '$content' WHERE id = $id";
+    $sql = "UPDATE bbs SET title = '$title', content = '$content' WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {
         echo "편지 고마웡 유애나 💜";
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     // Display edit form
     $id = $_GET['id'];
-    $sql = "SELECT title, content FROM posts WHERE id = $id";
+    $sql = "SELECT title, content FROM bbs WHERE id = $id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -35,14 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
-<!-- <form method="post" action="">
-    Title: <input type="text" name="title" value="<?php echo htmlspecialchars($title); ?>"><br>
-    Content:<br>
-    <textarea name="content"><?php echo htmlspecialchars($content); ?></textarea><br>
-    <input type="submit" value="Update Post">
-</form> -->
-
 
 <form method="post" action="">
     Title: <input type="text" name="title" id="title" value="<?php echo $title ?? ''; ?>"><br>
