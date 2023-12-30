@@ -29,17 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
 <body>
     
     <h2>💜 유애나 입장 💜</h2>
     <form method="post" action="login.php">
-        코드네임<br> <input type="text" name="userName" required><br>
-        암호를 대라<br> <input type="password" name="userPassword" required><br>
+        코드네임<br> <input type="text" name="userName" required><br><br>
+        암호를 대라<br> <input type="password" name="userPassword" required><br><br>
         <input type="submit" value="입장 💜"">
     </form>
     
