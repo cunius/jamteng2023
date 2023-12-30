@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     제목<br><input type="text" name="title" id="title" value="<?php echo htmlspecialchars($row['title']); ?>"><br><br>
     내용<br>
     <textarea name="content" rows="15" cols="63" id="content"><?php echo htmlspecialchars($row['content']); ?></textarea><br><br>
-    <input type="submit" value="Update Post">
+    <input type="submit" value="재전송 💜">
 </form>
 
 <div id="preview"></div>
