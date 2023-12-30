@@ -1,15 +1,6 @@
 <?php
 include 'head.php';
 include 'config.php'; // Database connection
-
-$searchTerm = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
-
-$sql = "SELECT id, title, content, created_at FROM posts";
-if (!empty($searchTerm)) {
-    $sql .= " WHERE title LIKE '%$searchTerm%' OR content LIKE '%$searchTerm%'";
-}
-$sql .= " ORDER BY created_at DESC";
-$result = $conn->query($sql);
 ?>
 
 <body>
