@@ -35,15 +35,16 @@ $conn->close();
     <title>Login</title>
 </head>
 <body>
-
-<h2>💜 유애나 입장 💜</h2>
-<form method="post" action="login.php">
-    코드네임<br> <input type="text" name="userName" required><br>
-    암호를 대라<br> <input type="password" name="userPassword" required><br>
-    <input type="submit" value="입장 💜"">
-</form>
-
-<?php if (!empty($error)) echo "<p>$error</p>"; ?>
-
+    
+    <h2>💜 유애나 입장 💜</h2>
+    <form method="post" action="login.php">
+        코드네임<br> <input type="text" name="userName" required><br>
+        암호를 대라<br> <input type="password" name="userPassword" required><br>
+        <input type="submit" value="입장 💜"">
+    </form>
+    
+    <?php if (!empty($error)) echo "<p>$error</p>"; ?>
+    
+    <footer><?php include ("footer.php") ?></footer>
 </body>
 </html>
