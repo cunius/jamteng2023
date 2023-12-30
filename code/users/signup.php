@@ -35,5 +35,6 @@ $conn->close();
 
 <?php if (!empty($error)) echo "<p>$error</p>"; ?>
 
+<footer><?php include ("footer.php") ?></footer>
 </body>
 </html>
