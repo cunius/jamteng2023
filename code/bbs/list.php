@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 <?php
 // Display the current search term
 if (!empty($searchTerm)) {
-    echo "<h2>너 <strong>".$searchTerm."</strong> 찾니? 왜? 해킹하려구? </h2>";
+    echo "<h2>너 이거 ( <strong>".$searchTerm."</strong> ) 찾니? 왜? 해킹하려구? </h2>";
 }
 
 
