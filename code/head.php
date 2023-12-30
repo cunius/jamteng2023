@@ -25,7 +25,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <?php if (isLoggedIn()): ?>
           <li><a href="write.php">💜 게시판</a></li>
           <li><a href="logout.php">💜 로그아웃</a></li><br>
-          <span><h2>환영해 우리 <?php echo htmlspecialchars($_SESSION['login_user']); ?> 💜</h2></span>
+          <span><h2>환영해 우리 <?php echo htmlspecialchars($_SESSION['login_user']); ?> <?php echo getUserRole(); ?> 💜</h2></span>
           
       <?php else: ?>
           <?php if ($current_page == "login.php"): ?>
