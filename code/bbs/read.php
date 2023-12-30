@@ -12,7 +12,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    echo "<h1>".$row["id"].". ".$row["title"]."</h1>";
+    echo "<h1>".$row["title"]."</h1>";
     echo "<p>".$row["content"]."</p>";
     echo "<p>보낸 날짜는 ".$row["created_at"]." 💜</p>";
 } else {
