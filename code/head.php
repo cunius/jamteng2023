@@ -27,14 +27,14 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <ul>
                     <li><a href="index.php">💜 Home</a></li>
                     <?php if (isLoggedIn()): ?>
-                        <span>환영해 우리 <?php echo htmlspecialchars($_SESSION['login_user']); ?> (<?php echo getUserRole(); ?>)💜</span>
-                        <a href="logout.php">로그아웃</a>
+                        <li><a href="write.php">💜 게시판</a></li>
+                        <a href="logout.php">💜 로그아웃</a><br>
+                        <span><h2>💜 환영해 우리 <?php echo htmlspecialchars($_SESSION['login_user']); ?> (<?php echo getUserRole(); ?>) 💜</h2></span>
                     <?php else: ?>
                         <?php if ($current_page == "login.php"): ?>
                             <li><a href="signup.php">💜 7기 가입</a></li>
                         <?php else: ?>
                             <li><a href="login.php">💜 유애나</a></li>
-                            <li><a href="write.php">💜 게시판</a></li>
                         <?php endif; ?>
                     <?php endif; ?>
                 </ul> 
