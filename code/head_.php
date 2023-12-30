@@ -36,7 +36,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
           <?php endif; ?>
       <?php endif; ?>
     </nav>
-    <br><br><br>
+    <br>
 
 </body>
 </html>
