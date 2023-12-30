@@ -40,7 +40,7 @@ $conn->close();
 <form method="post" action="login.php">
     코드네임<br> <input type="text" name="userName" required><br>
     암호를 대라<br> <input type="password" name="userPassword" required><br>
-    <input type="submit" value="Login">
+    <input type="submit" value="입장 💜"">
 </form>
 
 <?php if (!empty($error)) echo "<p>$error</p>"; ?>
