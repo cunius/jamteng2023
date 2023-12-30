@@ -34,6 +34,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                             <li><a href="signup.php">💜 7기 가입</a></li>
                         <?php else: ?>
                             <li><a href="login.php">💜 유애나</a></li>
+                            <li><a href="write.php">💜 게시판</a></li>
                         <?php endif; ?>
                     <?php endif; ?>
                 </ul> 
@@ -42,9 +43,5 @@ $current_page = basename($_SERVER['PHP_SELF']);
     </div>
 <br><br><br>
 
-<footer>
-    <br>
-    <p>© 2023 💜 왕잠탱이는 아이유를 조아행 💜 - All rights reserved.</p>
-</footer>
 </body>
 </html>
