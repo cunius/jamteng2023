@@ -5,8 +5,10 @@ include 'config.php'; // Include the configuration file
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userName = $conn->real_escape_string($_POST['userName']);
     $userPassword = $conn->real_escape_string($_POST['userPassword']);
+    $userEmail = $conn->real_escape_string($_POST['userEmail']);
+    $userAddr = $conn->real_escape_string($_POST['userAddr']);
     
-    $sql = "INSERT INTO users (userName, userPassword) VALUES ('$userName', '$userPassword')";
+    $sql = "INSERT INTO users (userName, userPassword, userEmail, userAddr) VALUES ('$userName', '$userPassword', '$userEmail', '$userAddr')";
 
     if ($conn->query($sql) === TRUE) {
         // echo "New record created successfully";
@@ -20,12 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Signup</title>
-</head>
 <body>
 
 <h2>💜 유애나 가입 신청서 💜</h2>
