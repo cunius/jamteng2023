@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $conn->real_escape_string($_POST['title']);
     $content = $conn->real_escape_string($_POST['content']);
 
-    $sql = "INSERT INTO posts (title, content) VALUES ('$title', '$content')";
+    $sql = "INSERT INTO bbs (title, content) VALUES ('$title', '$content')";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: list.php");
