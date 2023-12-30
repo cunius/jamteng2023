@@ -1,4 +1,5 @@
 # Cunius's 엉망징창 코딩놀이 for fun
+## Reflected XSS / Stored XSS / DOM XSS / CSRF / SSRF 취약점 구현
 
 ## Setup
 ```shell
