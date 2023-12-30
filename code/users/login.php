@@ -16,13 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $_SESSION['login_user'] = $row['userName']; // Store username in session
         $_SESSION['isAdmin'] = $row['isAdmin']; // Store isAdmin flag in session
-
+        $_SESSION['userId'] = $row['id']; // Assuming $row['id'] is the userId from the database
+        
         // Redirect to the index page or another page as needed
         header("Location: index.php");
         exit;
     } else {
         // User not found or password incorrect
-        $error = "☠️ Hello stuPID! Beep! Beep! ☠️";
+        $error = "<h2>☠️ Hello stuPID! Beep! Beep! 해킹하면 너는 혼난다 Beep! Stop it! ☠️</h2>";
     }
 }
 
