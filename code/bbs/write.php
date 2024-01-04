@@ -43,9 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form method="post" action="" enctype="multipart/form-data">
     제목<br><input type="text" name="title" id="title" value=""><br><br>
     편지<br>
-    <textarea name="content" id="content"></textarea><br><br>
-    <input type="file" name="fileUpload"><br>
-    <input type="submit" value="Submit">
+    <textarea name="content" id="content" rows="15" cols="63"></textarea><br><br>
+    <h4>우리들의 사진 찰캌!</h4><br>
+    <input type="file" name="fileUpload"><br><br>
+    <input type="재전송 💜" value="Submit">
 </form>
 
 <div id="preview"></div>
