@@ -14,23 +14,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $title = $conn->real_escape_string($_POST['title']);
     $content = $conn->real_escape_string($_POST['content']);
-    $userId = $_SESSION['userId']; //Retrieve the userId from the session
-    
+    $userId = $_SESSION['userId'];
+
     $uploadStatus = handleFileUpload();
     if (!$uploadStatus["error"]) {
-        $filePath = $conn->real_escape_string($uploadStatus["filePath"];
-        
+        $filePath = $conn->real_escape_string($uploadStatus["filePath"]);
+
         $sql = "INSERT INTO bbs (title, content, userId, filePath) VALUES ('$title', '$content', '$userId', '$filePath')";
 
         if ($conn->query($sql) === TRUE) {
             header("Location: list.php");
-            exit();
+            exit;
         } else {
-            echo "<h2>너 뭐야!? 산업 스파이야? 😒</h2> " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
     } else {
         echo $uploadStatus["errorMessage"];
     }
+
     $conn->close();
 }
 ?>
@@ -40,11 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <img src="iu4.jpg" width="500"><br>
 
 <form method="post" action="" enctype="multipart/form-data">
-    제목<br><input type="text" name="title" id="title" value="<?php echo $title ?? ''; ?>"><br><br>
+    제목<br><input type="text" name="title" id="title" value=""><br><br>
     편지<br>
-    <textarea name="content" rows="15" cols="63" id="content"><?php echo $content ?? ''; ?></textarea><br><br>
+    <textarea name="content" id="content"></textarea><br><br>
     <input type="file" name="fileUpload"><br>
-    <input type="submit" value="전송 💜">
+    <input type="submit" value="Submit">
 </form>
 
 <div id="preview"></div>
