@@ -36,11 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Handle file upload
     $uploadStatus = handleFileUpload();
-    if (!$uploadStatus["error"]; {
+    if (!$uploadStatus["error"]) {
         $filePath = $conn->real_escape_string($uploadStatus["filePath"]);
         
-    //Update post with new filepath
-    $update_sql = "UPDATE bbs SET title = '$title', content = '$content', filePath = '$filePath' WHERE id = $id";
+        //Update post with new filepath
+        $update_sql = "UPDATE bbs SET title = '$title', content = '$content', filePath = '$filePath' WHERE id = $id";
     } else {
         //update without changing filePath
         $update_sql = "UPDATE bbs SET title = '$title', content = '$content' WHERE id = $id";
