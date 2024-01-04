@@ -25,7 +25,7 @@ $row = $result->fetch_assoc();
 
 // Check if the logged-in user is the author or an admin
 if ($_SESSION['userId'] != $row['userId'] && $_SESSION['isAdmin'] != 1) {
-    echo "<h2>왜 내 편지 지우려고 해!! 이 나쁜 놈아 🤨</h2>";
+    echo "<h2>너 왜 내 편지 지우려고 해!! 이 나쁜 놈아 🤨</h2>";
     exit;
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Handle file upload
     $uploadStatus = handleFileUpload();
-    if (!uploadStatus["error"]; {
+    if (!$uploadStatus["error"]; {
         $filePath = $conn->real_escape_string($uploadStatus["filePath"]);
         
     //Update post with new filepath
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: list.php");
         exit;
     } else {
-        echo "<h2>내 편지를 감히 지울 수 없다!!</h2>" . $conn->error;
+        echo "<h2>내 편지를 감히 지울 수 없다! 이 스토커야!!</h2>" . $conn->error;
     }
 }
 $conn->close();
@@ -64,8 +64,8 @@ $conn->close();
 
     <?php
     if (!empty($row['filePath'])) {
-        $imageUrl = 'getimg.php?url=' .urlencode($row['filePath']);
-        echo '<img src="' .htmlspecialchars($imageUrl) .'" alt="Uploaded Image" style="max-width:100%;geight:auto;">';
+        $imageUrl = 'getimg.php?url=' . urlencode($row['filePath']);
+        echo '<img src="' .htmlspecialchars($imageUrl) .'" alt="Uploaded Image" style="max-width:100%;height:auto;">';
     }
     ?>
 
