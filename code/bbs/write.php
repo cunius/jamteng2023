@@ -18,15 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $uploadStatus = handleFileUpload();
     if (!$uploadStatus["error"]) {
-        $filePath = conn->real_escape_string($uploadStatus["filePath"];
+        $filePath = $conn->real_escape_string($uploadStatus["filePath"];
         
-        $sql = "INSERT INTO bbs (title, content, userId) VALUES ('$title', '$content', '$userId', '$filePath')";
+        $sql = "INSERT INTO bbs (title, content, userId, filePath) VALUES ('$title', '$content', '$userId', '$filePath')";
 
         if ($conn->query($sql) === TRUE) {
             header("Location: list.php");
             exit();
         } else {
-            echo "<h2>너 뭐야!? 😒</h2> " . $conn->error;
+            echo "<h2>너 뭐야!? 산업 스파이야? 😒</h2> " . $sql . "<br>" . $conn->error;
         }
     } else {
         echo $uploadStatus["errorMessage"];
