@@ -44,9 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     제목<br><input type="text" name="title" id="title" value=""><br><br>
     편지<br>
     <textarea name="content" id="content" rows="15" cols="63"></textarea><br><br>
-    <p>우리들의 사진 찰캌!</p><br>
+    <p>우리들의 사진 찰캌!</p>
     <input type="file" name="fileUpload"><br><br>
-    <input type="submit" value="재전송 💜">
+    <input type="submit" value="편지 전송 💜">
 </form>
 
 <div id="preview"></div>
