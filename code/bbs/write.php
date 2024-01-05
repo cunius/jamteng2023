@@ -41,11 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <img src="iu4.jpg" width="500"><br>
 
 <form method="post" action="" enctype="multipart/form-data">
-    제목<br><input type="text" name="title" id="title" value=""><br><br>
+    제목<br>
+    <input type="text" name="title" id="title" value=""><br><br>
     편지<br>
     <textarea name="content" id="content" rows="15" cols="63"></textarea><br><br>
-    <p>우리들의 사진 찰캌!</p>
-    <input type="file" name="fileUpload"><br><br>
+    우리들의 사진 찰캌!<br>
+    <input type="file" id="filePath" name="fileUpload"><br><br>
     <input type="submit" value="편지 전송 💜">
 </form>
 
