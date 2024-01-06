@@ -13,35 +13,35 @@ function handleFileUpload() {
         $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
         // Check if file already exists
-        // if (file_exists($target_file)) {
-        //     $uploadStatus["error"] = true;
-        //     $uploadStatus["errorMessage"] = "Sorry, file already exists.";
-        //     return $uploadStatus;
-        // }
+        if (file_exists($target_file)) {
+            $uploadStatus["error"] = true;
+            $uploadStatus["errorMessage"] = "오잉 이미 올렸자낭!";
+            return $uploadStatus;
+         }
 
         // Check file size
-        // if ($_FILES["fileUpload"]["size"] > 500000) { // 500KB limit
-        //     $uploadStatus["error"] = true;
-        //     $uploadStatus["errorMessage"] = "Sorry, your file is too large.";
-        //     return $uploadStatus;
-        // }
+        if ($_FILES["fileUpload"]["size"] > 10000000) { // 10000KB limit
+            $uploadStatus["error"] = true;
+            $uploadStatus["errorMessage"] = "미안행 나의 사이즈는 10000kb 바께 안돼...";
+            return $uploadStatus;
+         }
 
         // Allow certain file formats
-        // if ($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "gif") {
-        //     $uploadStatus["error"] = true;
-        //     $uploadStatus["errorMessage"] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        //     return $uploadStatus;
-        // }
+        if ($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "gif") {
+            $uploadStatus["error"] = true;
+            $uploadStatus["errorMessage"] = "유애나 편지는 JPG, JPEG, PNG, GIF 만 가능해용 🫣";
+            return $uploadStatus;
+         }
 
         if ($uploadOk == 0) {
             $uploadStatus["error"] = true;
-            $uploadStatus["errorMessage"] = "Sorry, your file was not uploaded.";
+            $uploadStatus["errorMessage"] = "오잉? 편지가 안 보내져떠 🙀";
         } else {
             if (move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $target_file)) {
                 $uploadStatus["filePath"] = $target_file;
             } else {
                 $uploadStatus["error"] = true;
-                $uploadStatus["errorMessage"] = "Sorry, there was an error uploading your file.";
+                $uploadStatus["errorMessage"] = "유애나 편지 전송 실패 🥲";
             }
         }
     }
