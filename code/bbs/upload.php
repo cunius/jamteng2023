@@ -7,7 +7,7 @@ function handleFileUpload() {
     ];
 
     if (isset($_FILES['fileUpload']) && $_FILES['fileUpload']['error'] == 0) {
-        $target_directory = "uploads/"; // Ensure this directory exists and is writable
+        $target_directory = "upload/"; // Ensure this directory exists and is writable
         $target_file = $target_directory . basename($_FILES["fileUpload"]["name"]);
         $uploadOk = 1;
         $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
