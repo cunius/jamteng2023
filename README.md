@@ -58,5 +58,6 @@ CREATE TABLE bbs (
     userId varchar(100) NOT NULL,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
+    filePath varchar(255),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
